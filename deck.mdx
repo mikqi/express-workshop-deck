@@ -1,0 +1,107 @@
+import {
+  Head, Image, Notes, Appear,
+  Invert, Split, SplitRight, FullScreenCode, Horizontal
+} from 'mdx-deck'
+import { prism } from 'mdx-deck/themes'
+
+export const themes = [
+  prism
+]
+
+# Frontend Level UP ⬆
+
+---
+
+## Learn NodeJS + ExpressJS 😎
+
+---
+
+Outline
+<ul>
+  <Appear>
+    <li>Basic Node</li>
+    <li>Foundation Express</li>
+    <li>Middleware</li>
+    <li>Routing</li>
+    <li>Building APIs</li>
+    <li>Views and Template engine</li>
+    <li>Connect with DB</li>
+    <li>Testing</li>
+    <li>Security</li>
+    <li>Deployment</li>
+  </Appear>
+</ul>
+
+---
+
+Outline
+
+- **Basic Node**
+- Foundation Express
+- Middleware
+- Routing
+- Building APIs
+- Views and Template engine
+- Connect with DB
+- Testing
+- Security
+- Deployment
+
+___
+
+<p style="padding: 0 120px;">
+  <a href="https://nodejs.org/">Node (or more formally Node.js)</a> is an open-source, cross-platform, runtime environment that allows developers to create all kinds of server-side tools and applications in JavaScript.
+</p>
+
+---
+
+## JavaScript that run on the server
+
+---
+
+### We can create our own server with NodeJS
+
+---
+
+### Lets start
+
+---
+
+**Simple HTTP Server with Node**
+```js
+const http = require('http')
+
+http.createServer((request, response) => {
+  response.end('Hello NodeJS')
+}).listen(1234, () => console.log('Server run on port 1234'))
+```
+
+---
+
+### How its works
+![Node Request](http://placekitten.com/g/200/300)
+
+---
+
+**HTTP Server with Node**
+```js
+const http = require('http')
+const requestHandler = (request, response) => {
+  switch (request.url) {
+    case '/':
+      return response.end('Ini homepage')
+    case '/profile':
+      return response.end('Ini Halaman Profile!!')
+    case '/about':
+      return response.end('Ini Halaman About')
+    default:
+      return response.end('404 Page Not Found')
+  }
+}
+http.createServer(requestHandler)
+  .listen(1234, () => console.log('Server run on port 1234'))
+```
+
+---
+
+### When Our App
