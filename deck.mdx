@@ -18,18 +18,16 @@ export const themes = [
 
 Outline
 <ul>
-  <Appear>
-    <li>Basic Node</li>
-    <li>Foundation Express</li>
-    <li>Middleware</li>
-    <li>Routing</li>
-    <li>Building APIs</li>
-    <li>Views and Template engine</li>
-    <li>Connect with DB</li>
-    <li>Testing</li>
-    <li>Security</li>
-    <li>Deployment</li>
-  </Appear>
+  <li>Basic Node</li>
+  <li>Foundation Express</li>
+  <li>Middleware</li>
+  <li>Routing</li>
+  <li>Building APIs</li>
+  <li>Views and Template engine</li>
+  <li>Connect with DB</li>
+  <li>Testing</li>
+  <li>Security</li>
+  <li>Deployment</li>
 </ul>
 
 ---
@@ -78,11 +76,6 @@ http.createServer((request, response) => {
 
 ---
 
-### How its works
-![Node Request](http://placekitten.com/g/200/300)
-
----
-
 **HTTP Server with Node**
 ```js
 const http = require('http')
@@ -102,6 +95,85 @@ http.createServer(requestHandler)
   .listen(1234, () => console.log('Server run on port 1234'))
 ```
 
+___
+
+### How its works
+![Node Request](https://raw.githubusercontent.com/mikqi/express-workshop-deck/master/images/node-request.png)
+
 ---
 
-### When Our App
+Outline
+
+- Basic Node
+- **Foundation Express**
+- Middleware
+- Routing
+- Building APIs
+- Views and Template engine
+- Connect with DB
+- Testing
+- Security
+- Deployment
+
+---
+
+### Express is a minimal, unopinionated framework that’s flexible
+
+---
+
+## Key Features
+
+<ul style="padding: 0 360px">
+  <li><strong>Middleware</strong> which is a way to break your app into smaller bits of behavior. Generally, middleware is called one by one, in a sequence.</li>
+  <li><strong>Routing</strong> similarly breaks your app up into smaller functions that are executed when the user visits a particular resource</li>
+  <li><strong>Routers</strong> can further break up large applications into smaller, composable subapplications.</li>
+</ul>
+
+---
+
+Outline
+
+- Basic Node
+- Foundation Express
+- **Middleware**
+- Routing
+- Building APIs
+- Views and Template engine
+- Connect with DB
+- Testing
+- Security
+- Deployment
+
+---
+
+```js
+const express = require('express')
+const http = require('http')
+const app = express()
+```
+
+---
+
+```js
+app.use((request, response, next) => {
+  console.log(`incoming ${request.method} to ${request.url}`)
+  next()
+})
+```
+
+---
+
+```js
+app.use((request, response, next) => {
+  response.writeHead(200, { 'Content-Type': 'text/plain' })
+  response.end('hello world')
+})
+
+http.createServer(app).listen(1234, () => console.log('app listen on port 1234'))
+```
+
+---
+
+## How Middleware Works
+
+![Node Request](https://raw.githubusercontent.com/mikqi/express-workshop-deck/master/images/middleware-works.png)
