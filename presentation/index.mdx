@@ -1,34 +1,12 @@
-import {
-  Head, Image, Notes, Appear,
-  Invert, Split, SplitRight, FullScreenCode, Horizontal
-} from 'mdx-deck'
-import { prism } from 'mdx-deck/themes'
-
-export const themes = [
-  prism
-]
+import { Cite } from 'spectacle'
+import { DarkSlide, CodeSlide } from './slides'
+import RegularComponent from './regular-component'
 
 # Frontend Level UP ⬆
 
 ---
 
-## Learn NodeJS + ExpressJS 😎
-
----
-
-Outline
-<ul>
-  <li>Basic Node</li>
-  <li>Foundation Express</li>
-  <li>Middleware</li>
-  <li>Routing</li>
-  <li>Building APIs</li>
-  <li>Views and Template engine</li>
-  <li>Connect with DB</li>
-  <li>Testing</li>
-  <li>Security</li>
-  <li>Deployment</li>
-</ul>
+## Learn NodeJS + ExpressJsS 😎
 
 ---
 
@@ -45,11 +23,11 @@ Outline
 - Security
 - Deployment
 
-___
+---
 
-<p style="padding: 0 120px;">
-  <a href="https://nodejs.org/">Node (or more formally Node.js)</a> is an open-source, cross-platform, runtime environment that allows developers to create all kinds of server-side tools and applications in JavaScript.
-</p>
+<a href="https://nodejs.org/">Node (or more formally Node.js)</a> is an
+open-source, cross-platform, runtime environment that allows developers to
+create all kinds of server-side tools and applications in JavaScript.
 
 ---
 
@@ -66,17 +44,21 @@ ___
 ---
 
 **Simple HTTP Server with Node**
+
 ```js
 const http = require('http')
 
-http.createServer((request, response) => {
-  response.end('Hello NodeJS')
-}).listen(1234, () => console.log('Server run on port 1234'))
+http
+  .createServer((request, response) => {
+    response.end('Hello NodeJS')
+  })
+  .listen(1234, () => console.log('Server run on port 1234'))
 ```
 
 ---
 
 **HTTP Server with Node**
+
 ```js
 const http = require('http')
 const requestHandler = (request, response) => {
@@ -91,13 +73,15 @@ const requestHandler = (request, response) => {
       return response.end('404 Page Not Found')
   }
 }
-http.createServer(requestHandler)
+http
+  .createServer(requestHandler)
   .listen(1234, () => console.log('Server run on port 1234'))
 ```
 
-___
+---
 
 ### How its works
+
 ![Node Request](https://raw.githubusercontent.com/mikqi/express-workshop-deck/master/images/node-request.png)
 
 ---
@@ -123,11 +107,9 @@ Outline
 
 ## Key Features
 
-<ul style="padding: 0 360px">
-  <li><strong>Middleware</strong> which is a way to break your app into smaller bits of behavior. Generally, middleware is called one by one, in a sequence.</li>
-  <li><strong>Routing</strong> similarly breaks your app up into smaller functions that are executed when the user visits a particular resource</li>
-  <li><strong>Routers</strong> can further break up large applications into smaller, composable subapplications.</li>
-</ul>
+- <strong>Middleware</strong> which is a way to break your app into smaller bits of behavior. Generally, middleware is called one by one, in a sequence.
+- <strong>Routing</strong> similarly breaks your app up into smaller functions that are executed when the user visits a particular resource
+- <strong>Routers</strong> can further break up large applications into smaller, composable subapplications.
 
 ---
 
@@ -169,7 +151,9 @@ app.use((request, response, next) => {
   response.end('hello world')
 })
 
-http.createServer(app).listen(1234, () => console.log('app listen on port 1234'))
+http
+  .createServer(app)
+  .listen(1234, () => console.log('app listen on port 1234'))
 ```
 
 ---
