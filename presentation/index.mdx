@@ -1,0 +1,177 @@
+import { Cite } from 'spectacle'
+import { DarkSlide, CodeSlide } from './slides'
+import RegularComponent from './regular-component'
+
+# Frontend Level UP ⬆
+
+---
+
+## Learn NodeJS + ExpressJsS 😎
+
+---
+
+Outline
+
+- **Basic Node**
+- Foundation Express
+- Middleware
+- Routing
+- Building APIs
+- Views and Template engine
+- Connect with DB
+- Testing
+- Security
+- Deployment
+
+---
+
+<a href="https://nodejs.org/">Node (or more formally Node.js)</a> is an
+open-source, cross-platform, runtime environment that allows developers to
+create all kinds of server-side tools and applications in JavaScript.
+
+---
+
+## JavaScript that run on the server
+
+---
+
+### We can create our own server with NodeJS
+
+---
+
+### Lets start
+
+---
+
+export default DarkSlide
+
+**Simple HTTP Server with Node**
+
+```js
+const http = require('http')
+
+http
+  .createServer((request, response) => {
+    response.end('Hello NodeJS')
+  })
+  .listen(1234, () => console.log('Server run on port 1234'))
+```
+
+---
+
+export default DarkSlide
+
+**HTTP Server with Node**
+
+```js
+const http = require('http')
+const requestHandler = (request, response) => {
+  switch (request.url) {
+    case '/':
+      return response.end('Ini homepage')
+    case '/profile':
+      return response.end('Ini Halaman Profile!!')
+    case '/about':
+      return response.end('Ini Halaman About')
+    default:
+      return response.end('404 Page Not Found')
+  }
+}
+http
+  .createServer(requestHandler)
+  .listen(1234, () => console.log('Server run on port 1234'))
+```
+
+---
+
+### How its works
+
+![Node Request](https://raw.githubusercontent.com/mikqi/express-workshop-deck/master/images/node-request.png)
+
+---
+
+Outline
+
+- Basic Node
+- **Foundation Express**
+- Middleware
+- Routing
+- Building APIs
+- Views and Template engine
+- Connect with DB
+- Testing
+- Security
+- Deployment
+
+---
+
+![express logo](https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png)
+
+### is a minimal, unopinionated framework that’s flexible
+
+---
+
+## Key Features
+
+- <strong>Middleware</strong> which is a way to break your app into smaller bits of behavior. Generally, middleware is called one by one, in a sequence.
+<br/>
+- <strong>Routing</strong> similarly breaks your app up into smaller functions that are executed when the user visits a particular resource
+<br/>
+- <strong>Routers</strong> can further break up large applications into smaller, composable subapplications.
+
+---
+
+Outline
+
+- Basic Node
+- Foundation Express
+- **Middleware**
+- Routing
+- Building APIs
+- Views and Template engine
+- Connect with DB
+- Testing
+- Security
+- Deployment
+
+---
+
+export default DarkSlide
+
+```js
+const express = require('express')
+const http = require('http')
+const app = express()
+```
+
+---
+
+export default DarkSlide
+
+```js
+app.use((request, response, next) => {
+  console.log(`incoming ${request.method} to ${request.url}`)
+  next()
+})
+```
+
+---
+
+export default DarkSlide
+
+```js
+app.use((request, response, next) => {
+  response.writeHead(200, { 'Content-Type': 'text/plain' })
+  response.end('hello world')
+})
+
+http
+  .createServer(app)
+  .listen(1234, () => console.log('app listen on port 1234'))
+```
+
+---
+
+## How Middleware Works
+
+![Node Request](https://raw.githubusercontent.com/mikqi/express-workshop-deck/master/images/middleware-works.png)
